@@ -20,4 +20,4 @@ aws_ansiblegroup_tag: cloud
 aws_ec2_wait: true
 aws_snapshots: {}
 
-download_files: [{url: 'https://access.cdn.redhat.com/content/origin/files/sha256/0e/0eaee0fdcf6884e201b34d265c2614b6872b4e02b3f7fe3a6de3e88b3043c6ec/ansible-automation-platform-setup-2.4-13.tar.gz?user=c84227f2a18da30173574bd4f86d38ee&_auth_=1761703749_59cc4c518c0caf9df0318d85d45dd16e', dest: '/tmp/ansible-automation-platform-setup-2.4'}]
+download_files: [{url: '', dest: '/tmp/ansible-automation-platform-setup-2.4'}]
