@@ -1,4 +1,8 @@
 ---
+- name: Show download_files
+  ansible.builtin.debug:
+    msg: "Downloads {{ download_files }}"
+  
 - name: Fail if download_files is not defined or not a list
   ansible.builtin.fail:
     msg: "The 'download_files' variable is required and must be a list of items (e.g., [{url: '...', dest: '...'}])"
