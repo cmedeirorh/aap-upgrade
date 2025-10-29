@@ -15,3 +15,12 @@
     owner: '{{ ansible_user }}'
     group: '{{ ansible_user }}'
   loop: "{{ download_files }}"
+
+- name: "Deploy Inventory File"
+  ansible.builtin.template:
+    src: "{{ inv24_src }}"
+    dest: "{{ inv24_dest }}"
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+    mode: 600
+    backup: yes
