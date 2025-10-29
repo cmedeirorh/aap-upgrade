@@ -1,6 +1,7 @@
 ---
 - name: Initial prep for the OS
   hosts: all
+  become: true
 
   tasks:
     - name: Prep OS
