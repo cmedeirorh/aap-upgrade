@@ -5,6 +5,7 @@
     state: directory
     mode: '0755'
     owner: '{{ ansible_user }}'
+    group: '{{ ansible_user }}'
 
 - name: "Extract archive"
   ansible.builtin.unarchive:
@@ -12,4 +13,5 @@
     dest: "{{ install_path }}"
     remote_src: yes
     owner: '{{ ansible_user }}'
+    group: '{{ ansible_user }}'
   loop: "{{ download_files }}"
