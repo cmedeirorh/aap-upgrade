@@ -79,8 +79,8 @@ pg_sslmode='prefer'  # set to 'verify-full' for client-side enforced SSL
 #   installer is used.
 
 registry_url='registry.redhat.io'
-registry_username=''
-registry_password=''
+registry_username='{{ reg_user }}'
+registry_password='{{ reg_pass }}'
 # ee_from_hub_only =
 
 # If you wish to add Ansible Engine 2.9 execution environment, set the following variable to true.
