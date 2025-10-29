@@ -1,4 +1,14 @@
 ---
+- name: "Generate SSH key pair on Bastion"
+  ansible.builtin.openssh_keypair:
+    path: "{{ ssh_key_private_path }}"
+    type: "{{ ssh_key_type }}"
+    bits: "{{ ssh_key_bits }}"
+    state: present
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+    mode: 0600
+    
 - name: "Ensure work directory exists"
   ansible.builtin.file:
     path: "{{ install_path }}"
