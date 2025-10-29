@@ -26,3 +26,4 @@ ssh_key_private_path: "/home/{{ ansible_user }}/.ssh/id_rsa"
 ssh_key_public_path: "/home/{{ ansible_user }}/.ssh/id_rsa.pub"
 ssh_key_type: "rsa"
 ssh_key_size: 4096
+key_source_host: "bastion"
