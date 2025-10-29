@@ -1,5 +1,5 @@
 ---
- name: "Generate SSH key pair on Bastion"
+- name: "Generate SSH key pair on Bastion"
   community.crypto.openssh_keypair:
     path: "{{ ssh_key_private_path }}"
     type: "{{ ssh_key_type }}"
