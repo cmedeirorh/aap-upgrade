@@ -21,4 +21,4 @@ aws_ec2_wait: true
 aws_snapshots: {}
 download_files: 
   - url: 'https://access.cdn.redhat.com'
-    dest: '/tmp/ansible-automation-platform-setup-2.4'
+install_path: "/aap"
