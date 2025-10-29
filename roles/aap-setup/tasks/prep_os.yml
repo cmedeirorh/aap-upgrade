@@ -3,13 +3,19 @@
   ansible.builtin.package:
     name: rh-amazon-rhui-client*
     state: absent
-    
+
+- name: "Manage repos with subscription mangler"
+  ansible.builtin.lineinfile:
+    path: /etc/rhsm/rhsm.conf
+    regexp: '^manage_repos'
+    line: 'manage_repos = 1'
+        
 - name: "Register with Activation Key"
   community.general.redhat_subscription:
     state: present
     activationkey: "{{ rhn_activationkey }}"
     org_id: "{{ rhn_orgid }}"
-    
+  
 - name: "Generate SSH key pair on Bastion"
   community.crypto.openssh_keypair:
     path: "{{ ssh_key_private_path }}"
