@@ -1,4 +1,10 @@
 ---
+- name: "Register with Activation Key"
+  ansible.builtin.command: >
+    subscription-manager register
+    --activationkey="{{ rhn_activationkey }}"
+    --org="{{ rhn_orgid }}"
+    
 - name: "Generate SSH key pair on Bastion"
   community.crypto.openssh_keypair:
     path: "{{ ssh_key_private_path }}"
