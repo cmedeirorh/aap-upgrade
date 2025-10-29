@@ -4,15 +4,10 @@
     path: "{{ install_path }}"
     state: directory
     mode: '0755'
-  
-- name: Fail if download_files is not defined or not a list
-  ansible.builtin.fail:
-    msg: "The 'download_files' variable is required and must be a list of items (e.g., [{url: '...', dest: '...'}])"
-  when: download_files is not defined
 
 - name: "Extract archive"
   ansible.builtin.unarchive:
-    src: "{{ item.url }}"
+    src: "{{ item }}"
     dest: "{{ install_path }}"
     remote_src: yes
   loop: "{{ download_files }}"
