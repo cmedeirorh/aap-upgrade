@@ -20,5 +20,8 @@ aws_ansiblegroup_tag: cloud
 aws_ec2_wait: true
 aws_snapshots: {}
 download_files: 
-  - url: 'https://access.cdn.redhat.com'
+  - url: "https://access.cdn.redhat.com"
 install_path: "/aap"
+ssh_key_private_path: "/home/{{ ansible_user }}/.ssh/id_rsa"
+ssh_key_type: "rsa"
+ssh_key_bits: 4096
