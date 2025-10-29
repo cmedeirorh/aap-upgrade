@@ -1,23 +1,17 @@
 ---
-- name: Show download_files
-  ansible.builtin.debug:
-    var: download_files
+- name: "Ensure work directory exists"
+  ansible.builtin.file:
+    path: "{{ install_path }}"
+    state: directory
+    mode: '0755'
   
 - name: Fail if download_files is not defined or not a list
   ansible.builtin.fail:
     msg: "The 'download_files' variable is required and must be a list of items (e.g., [{url: '...', dest: '...'}])"
   when: download_files is not defined
 
-- name: Download all specified files
-  ansible.builtin.get_url:
-    url: "{{ item.url }}"
-    dest: "{{ item.dest | default('/tmp/' + (item.url | basename)) }}"
-    mode: "0644"
-  loop: "{{ download_files }}"
-  register: download_results
-
-- name: Show download results
-  ansible.builtin.debug:
-    msg: "Downloaded {{ item.url }} to {{ item.dest }}"
-  loop: "{{ download_results.results }}"
-  when: item.changed
+- name: "Extract archive"
+  ansible.builtin.unarchive:
+    src: "{{ item.url }}"
+    dest: "{{ install_path }}"
+    remote_src: yes
