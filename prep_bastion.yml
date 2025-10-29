@@ -1,6 +1,6 @@
 ---
 - name: Bastion Prep
-  hosts: all
+  hosts: bastion
   become: true
 
   tasks:
