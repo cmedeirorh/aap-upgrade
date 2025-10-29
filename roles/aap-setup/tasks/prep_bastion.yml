@@ -24,3 +24,9 @@
     group: "{{ ansible_user }}"
     mode: 600
     backup: yes
+    
+- name: "Install required packages"
+  ansible.builtin.package:
+    name: "{{ packages }}"
+    state: present
+  when: packages | length > 0
