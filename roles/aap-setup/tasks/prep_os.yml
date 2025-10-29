@@ -1,9 +1,14 @@
 ---
+- name: "Remove specified packages"
+  ansible.builtin.package:
+    name: rh-amazon-rhui-client*
+    state: absent
+    
 - name: "Register with Activation Key"
-  ansible.builtin.command: >
-    subscription-manager register
-    --activationkey="{{ rhn_activationkey }}"
-    --org="{{ rhn_orgid }}"
+  community.general.redhat_subscription:
+    state: present
+    activationkey: "{{ rhn_activationkey }}"
+    org_id: "{{ rhn_orgid }}"
     
 - name: "Generate SSH key pair on Bastion"
   community.crypto.openssh_keypair:
