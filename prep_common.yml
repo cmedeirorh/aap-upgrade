@@ -1,4 +1,17 @@
 ---
+- name: Fetch Public SSH Key from Bastion
+  hosts: bastion
+
+  tasks:
+    - name: "Read the public key file from {{ inventory_hostname }}"
+      ansible.builtin.slurp:
+        src: "{{ ssh_key_public_path }}"
+      register: fetched_key_data
+      
+    - name: "Store the key content as a fact on localhost"
+      ansible.builtin.set_fact:
+        fetched_public_key: "{{ fetched_key_data.content | b64decode }}"  
+        
 - name: Prep All Nodes
   hosts: all
   become: true
