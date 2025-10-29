@@ -46,6 +46,7 @@ peers=execution_nodes
 
 [all:vars]
 admin_password='{{ aap_password }}'
+ansible_become=true
 
 pg_host='{{ aap_db_host }}'
 pg_port=5432
