@@ -24,4 +24,4 @@ download_files:
 install_path: "/aap"
 ssh_key_private_path: "/home/{{ ansible_user }}/.ssh/id_rsa"
 ssh_key_type: "rsa"
-ssh_key_bits: 4096
+ssh_key_size: 4096
