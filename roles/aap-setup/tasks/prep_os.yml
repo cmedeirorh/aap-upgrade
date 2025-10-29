@@ -8,8 +8,8 @@
     owner: "{{ ansible_user }}"
     group: "{{ ansible_user }}"
     mode: 0600
-    when: inventory_hostname == key_source_host
-    register: generated_key
+  when: inventory_hostname == key_source_host
+  register: generated_key
 
 - name: "Store the new public key as a fact on localhost"
   ansible.builtin.set_fact:
