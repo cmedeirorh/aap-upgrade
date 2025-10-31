@@ -34,7 +34,7 @@
     region: "{{ aws_region }}"
     security_group: "{{ aws_securitygroup_name }}"
     volumes:
-      - device_name: /dev/xvda
+      - device_name: /dev/sda1
         volume_size: 30
         delete_on_termination: yes
     tags:
