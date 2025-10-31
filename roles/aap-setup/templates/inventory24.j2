@@ -9,8 +9,8 @@
 # hybrid.example  node_type=hybrid
 # hybrid2.example <- this will default to hybrid
 [automationcontroller]
-{% for aap_controller in aap_controllers %}
-{{ aap_controller }}
+{% for controller in controllers %}
+{{ controller }}
 {% endfor %}
 
 [automationcontroller:vars]
