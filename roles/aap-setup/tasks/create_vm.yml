@@ -19,18 +19,13 @@
       architecture: "{{ aws_image_architecture | default(omit) }}"
   register: aws_amis
 
-- name: AWS| CREATE VM | save ami
-  ansible.builtin.set_fact:
-    aws_instance_ami: >
-      {{ (aws_amis.images | selectattr('name', 'defined') | sort(attribute='creation_date'))[-2] }}
-
 - name: AWS| CREATE VM | create instance
   amazon.aws.ec2_instance:
     network:
       assign_public_ip: true
     key_name: "{{ aws_keypair_name }}"
     instance_type: "{{ aws_instance_size }}"
-    image_id: "{{ aws_instance_ami.image_id }}"
+    image_id: "{{ aws_image_filter }}"
     region: "{{ aws_region }}"
     security_group: "{{ aws_securitygroup_name }}"
     volumes:
