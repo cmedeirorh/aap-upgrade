@@ -28,5 +28,10 @@ ssh_key_type: "rsa"
 ssh_key_size: 4096
 key_source_host: "bastion"
 instance_names: 
-  - test1
-  - test2
+  - bastion
+  - ctrl
+  - hub
+  - exec
+  - database
+  - gateway
+  - eda
