@@ -10,8 +10,8 @@
 # hybrid2.example <- this will default to hybrid
 [automationcontroller]
 [all_hosts]
-{% for host in groups['all'] %}
-{{ host }}
+{% for host in groups['controllers'] %}
+{{ host }} ansible_hostname={{ hostvars[host].ansible_hostname }}
 {% endfor %}
 
 [automationcontroller:vars]
