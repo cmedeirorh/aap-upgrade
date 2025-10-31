@@ -9,8 +9,9 @@
 # hybrid.example  node_type=hybrid
 # hybrid2.example <- this will default to hybrid
 [automationcontroller]
-{% for controller in controllers %}
-{{ controller }}
+[all_hosts]
+{% for host in groups['all'] %}
+{{ host }}
 {% endfor %}
 
 [automationcontroller:vars]
