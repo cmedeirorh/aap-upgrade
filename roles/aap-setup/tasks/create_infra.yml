@@ -34,8 +34,6 @@
           - 80  # HTTP
           - 443  # HTTPS
           - 22  # SSH
-          - 5986  # WinRM
-          - 3389  # RDP
         cidr_ip: 0.0.0.0/0
       - proto: icmp
         to_port: -1
