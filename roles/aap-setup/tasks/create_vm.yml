@@ -37,7 +37,8 @@
       purpose: "{{ aws_purpose_tag }}"
       ansible_group: "{{ aws_ansiblegroup_tag }}"
       owner: "{{ aws_vm_owner }}"
-      Name: "{{ aws_vm_name }}"
+      Name: "{{ item }}"
     vpc_subnet_id: "{{ aws_subnet_id }}"
     #user_data: "{{ lookup('template', aws_userdata_template + '.j2', template_vars=dict(aws_vm_name=vm_name)) }}"
+  loop: "{{ instance_names }}"
   register: aws_vm_output
