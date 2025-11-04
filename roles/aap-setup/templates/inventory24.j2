@@ -106,8 +106,9 @@ receptor_listener_port=27199
 #
 
 automationhub_admin_password='{{ aap_password }}'
-
-automationhub_pg_host='{{ aap_db_host }}'
+{% for host in groups['dbs'] %}
+automationhub_pg_host={{ hostvars[host].private_dns_name }}
+{% endfor %}
 automationhub_pg_port=5432
 
 automationhub_pg_database='automationhub'
@@ -205,8 +206,9 @@ automationhub_seed_collections = True
 #
 
 automationedacontroller_admin_password='{{ aap_password }}'
-
-automationedacontroller_pg_host='{{ aap_db_host }}'
+{% for host in groups['dbs'] %}
+automationedacontroller_pg_host={{ hostvars[host].private_dns_name }}
+{% endfor %}
 automationedacontroller_pg_port=5432
 
 automationedacontroller_pg_database='automationedacontroller'
