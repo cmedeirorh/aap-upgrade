@@ -53,7 +53,7 @@ peers=execution_nodes
 [all:vars]
 admin_password='{{ aap_password }}'
 ansible_become=true
-bundle_install=true
+# bundle_install=true
 
 {% for host in groups['dbs'] %}
 pg_host={{ hostvars[host].private_dns_name }}
