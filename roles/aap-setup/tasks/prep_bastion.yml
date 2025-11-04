@@ -15,6 +15,7 @@
     owner: '{{ ansible_user }}'
     group: '{{ ansible_user }}'
   loop: "{{ download_files }}"
+  when: varia is defined
 
 - name: "Deploy Inventory File"
   ansible.builtin.template:
