@@ -24,6 +24,11 @@ download_files:
 install_path: "/aap"
 ssh_key_private_path: "/home/{{ ansible_user }}/.ssh/id_rsa"
 ssh_key_public_path: "/home/{{ ansible_user }}/.ssh/id_rsa.pub"
+ssh_config_src: ssh_config.j2
+ssh_config_dest: "/home/{{ ansible_user }}/.ssh/config"
+subdomain: compute.internal
+inv24_src: inventory24.j2
+inv24_dest: /aap/inventory24
 ssh_key_type: "rsa"
 ssh_key_size: 4096
 key_source_host: "bastion"
