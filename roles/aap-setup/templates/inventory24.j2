@@ -28,15 +28,24 @@ peers=execution_nodes
 # execution.example  node_type=execution
 # execution2.example <- this will default to execution
 [execution_nodes]
-{{ aap_exec_host }}
+[all_hosts]
+{% for host in groups['executions'] %}
+{{ host }} ansible_host={{ hostvars[host].private_ip_address }}
+{% endfor %}
 
 [automationhub]
-{{ aap_hub_host }}
+[all_hosts]
+{% for host in groups['hubs'] %}
+{{ host }} ansible_host={{ hostvars[host].private_ip_address }}
+{% endfor %}
 
 [automationedacontroller]
 
 [database]
-{{ aap_db_host }}
+[all_hosts]
+{% for host in groups['dbs'] %}
+{{ host }} ansible_host={{ hostvars[host].private_ip_address }}
+{% endfor %}
 
 # Single Sign-On
 # If sso_redirect_host is set, that will be used for application to connect to
