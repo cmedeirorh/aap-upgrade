@@ -34,9 +34,11 @@ ssh_key_size: 4096
 key_source_host: "bastion"
 instance_names: 
   - bastion
-  - ctrl
-  - hub
-  - exec
+  - controller1
+  - controller2
+  - hub1
+  - exec1
   - database
-  - gateway
-  - eda
+  - gateway1
+  - gateway2
+  - eda1
