@@ -59,7 +59,10 @@ admin_password='{{ aap_password }}'
 ansible_become=true
 bundle_install=true
 
-pg_host='{{ aap_db_host }}'
+[all_hosts]
+{% for host in groups['dbs'] %}
+pg_host={{ hostvars[host].private_ip_address }}
+{% endfor %}
 pg_port=5432
 
 pg_database='awx'
