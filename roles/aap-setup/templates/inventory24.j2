@@ -11,7 +11,7 @@
 [automationcontroller]
 [all_hosts]
 {% for host in groups['controllers'] %}
-{{ host }} ansible_hostname={{ hostvars[host].ansible_host }}
+{{ host }} ansible_host={{ hostvars[host].private_ip_address }}
 {% endfor %}
 
 [automationcontroller:vars]
