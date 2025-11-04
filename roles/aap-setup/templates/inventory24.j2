@@ -48,6 +48,7 @@ peers=execution_nodes
 [all:vars]
 admin_password='{{ aap_password }}'
 ansible_become=true
+bundle_install=true
 
 pg_host='{{ aap_db_host }}'
 pg_port=5432
@@ -190,7 +191,7 @@ automationhub_pg_sslmode='prefer'
 # By default, bundle installer seeds certified and validated collections into
 # Automation Hub. Set to False to disable the seeding.
 #
-# automationhub_seed_collections = True
+automationhub_seed_collections = True
 
 
 # Automation EDA Controller Configuration
