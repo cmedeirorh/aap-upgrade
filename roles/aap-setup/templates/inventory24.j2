@@ -9,9 +9,8 @@
 # hybrid.example  node_type=hybrid
 # hybrid2.example <- this will default to hybrid
 [automationcontroller]
-[all_hosts]
 {% for host in groups['controllers'] %}
-{{ host }} ansible_host={{ hostvars[host].private_ip_address }}
+{{ host }} ansible_host={{ hostvars[host].private_dns_name }}
 {% endfor %}
 
 [automationcontroller:vars]
@@ -28,23 +27,20 @@ peers=execution_nodes
 # execution.example  node_type=execution
 # execution2.example <- this will default to execution
 [execution_nodes]
-[all_hosts]
 {% for host in groups['executions'] %}
-{{ host }} ansible_host={{ hostvars[host].private_ip_address }}
+{{ host }} ansible_host={{ hostvars[host].private_dns_name }}
 {% endfor %}
 
 [automationhub]
-[all_hosts]
 {% for host in groups['hubs'] %}
-{{ host }} ansible_host={{ hostvars[host].private_ip_address }}
+{{ host }} ansible_host={{ hostvars[host].private_dns_name }}
 {% endfor %}
 
 [automationedacontroller]
 
 [database]
-[all_hosts]
 {% for host in groups['dbs'] %}
-{{ host }} ansible_host={{ hostvars[host].private_ip_address }}
+{{ host }} ansible_host={{ hostvars[host].private_dns_name }}
 {% endfor %}
 
 # Single Sign-On
@@ -59,9 +55,8 @@ admin_password='{{ aap_password }}'
 ansible_become=true
 bundle_install=true
 
-[all_hosts]
 {% for host in groups['dbs'] %}
-pg_host={{ hostvars[host].private_ip_address }}
+pg_host={{ hostvars[host].private_dns_name }}
 {% endfor %}
 pg_port=5432
 
