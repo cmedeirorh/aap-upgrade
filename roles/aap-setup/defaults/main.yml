@@ -21,6 +21,10 @@ aws_ec2_wait: true
 aws_snapshots: {}
 download_files: 
   - url: "https://access.cdn.redhat.com"
+packages:
+  - vim
+  - git
+  - ansible-core  
 install_path: "/aap"
 ssh_key_private_path: "/home/{{ ansible_user }}/.ssh/id_rsa"
 ssh_key_public_path: "/home/{{ ansible_user }}/.ssh/id_rsa.pub"
