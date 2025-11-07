@@ -50,12 +50,6 @@ peers=execution_nodes
 {% for host in groups['gateways'] %}
 {{ host }} ansible_host={{ hostvars[host].private_dns_name }}
 {% endfor %}
-{% for host in groups['edas'] %}
-{{ host }} ansible_host={{ hostvars[host].private_dns_name }}
-{% endfor %}
-{% for host in groups['hubs'] %}
-{{ host }} ansible_host={{ hostvars[host].private_dns_name }}
-{% endfor %}
 
 [all:vars]
 
@@ -63,6 +57,7 @@ peers=execution_nodes
 # https://docs.redhat.com/en/documentation/red_hat_ansible_automation_platform/2.6/html/rpm_installation/appendix-inventory-files-vars#ref-general-inventory-variables
 # -----------------------------------------------------
 ansible_become=true
+redis_mode='standalone'
 registry_username={{ reg_user }}
 registry_password={{ reg_pass }}
 
