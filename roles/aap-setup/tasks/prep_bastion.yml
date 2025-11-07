@@ -17,10 +17,19 @@
   loop: "{{ download_files }}"
   when: varia is defined
 
-- name: "Deploy Inventory File"
+- name: "Deploy 2.4 Inventory File"
   ansible.builtin.template:
     src: "{{ inv24_src }}"
     dest: "{{ inv24_dest }}"
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+    mode: '0600'
+    backup: no
+
+- name: "Copy Sample Inventory File"
+  ansible.builtin.template:
+    src: "{{ inv_new_src }}"
+    dest: "{{ inv_new_dest }}"
     owner: "{{ ansible_user }}"
     group: "{{ ansible_user }}"
     mode: '0600'
