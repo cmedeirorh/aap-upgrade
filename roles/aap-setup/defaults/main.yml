@@ -29,6 +29,8 @@ ssh_config_dest: "/home/{{ ansible_user }}/.ssh/config"
 subdomain: compute.internal
 inv24_src: inventory24.j2
 inv24_dest: /aap/inventory24
+inv_new_src: inventory_new_sample.j2
+inv_new_dest: /aap/inventory_new_sample
 ssh_key_type: "rsa"
 ssh_key_size: 4096
 key_source_host: "bastion"
